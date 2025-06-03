@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos básicos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Gestión Académica</title>
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <!-- Contenedor principal del formulario de login -->
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Título del sistema -->
+            <h1>Sistema de Gestión Académica</h1>
+            <!-- Formulario de inicio de sesión -->
+            <div class="login-form">
+                <!-- Campo de usuario -->
+                <div class="form-group">
+                    <label for="nombre_usuario">Usuario</label>
+                    <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+                </div>
+                <!-- Campo de contraseña con botón para mostrar/ocultar -->
+                <div class="form-group">
+                    <label for="contrasena">Contraseña:</label>
+                    <div class="password-container">
+                        <input type="password" id="contrasena" required>
+                        <span id="toggle-password" class="password-toggle">👁️</span>
+                    </div>
+                </div>
+                <!-- Contenedor para mensajes de error -->
+                <div id="mensaje-error" class="mensaje-error"></div>
+                <!-- Botón de inicio de sesión -->
+                <button id="btn-login" class="btn-login">Iniciar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para la funcionalidad de login -->
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

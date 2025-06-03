@@ -1,0 +1,607 @@
+/* Variables CSS personalizadas - Define colores y valores reutilizables en todo el sitio */
+:root {
+    --color-primario: #2c3e50;     /* Color principal azul oscuro para encabezados y elementos importantes */
+    --color-secundario: #34495e;   /* Color secundario para gradientes y variaciones */
+    --color-acento: #3498db;       /* Color de acento azul para botones y enlaces */
+    --color-exito: #2ecc71;        /* Color verde para indicar éxito o acciones positivas */
+    --color-error: #e74c3c;        /* Color rojo para errores y acciones de eliminación */
+    --sombra: 0 2px 5px rgba(0,0,0,0.1);  /* Sombra estándar para elementos elevados */
+    --transicion: all 0.3s ease;   /* Transición suave para efectos hover y cambios */
+    --radio-borde: 5px;            /* Radio de borde estándar para elementos redondeados */
+}
+
+/* Estilos base - Resetea márgenes y establece box-sizing uniforme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* Incluye padding y border en el ancho total */
+}
+
+/* Estilos del cuerpo - Define la tipografía y color de fondo base */
+body {
+    font-family: system-ui, -apple-system, sans-serif;  /* Fuente del sistema para mejor rendimiento */
+    line-height: 1.6;        /* Espaciado entre líneas para mejor legibilidad */
+    color: #333;             /* Color de texto principal */
+    background-color: #f5f6fa;  /* Color de fondo gris claro */
+}
+
+/* Encabezado - Estilo para la barra superior del sitio */
+header {
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));  /* Gradiente diagonal */
+    color: white;            /* Texto blanco sobre fondo oscuro */
+    padding: 0.8rem;         /* Espaciado interno */
+    box-shadow: var(--sombra);  /* Sombra para separar del contenido */
+    text-align: 100px;       /* Valor incorrecto - debería ser 'center' */
+}
+
+/* Título principal del encabezado */
+header h1 {
+    font-size: 1.8rem;       /* Tamaño de fuente grande para el título */
+    margin: 0;               /* Sin márgenes */
+    margin-left: 550px;      /* Centrado manual - mejor usar text-align: center */
+    margin-right: auto;
+}
+
+/* Navegación - Estilos para el menú de navegación */
+nav ul {
+    display: flex;           /* Disposición horizontal de elementos */
+    justify-content: center; /* Centra los elementos del menú */
+    gap: 1rem;              /* Espacio entre elementos del menú */
+    list-style: none;       /* Quita las viñetas de la lista */
+    padding: 0.5rem 0;      /* Espaciado vertical */
+    margin-left: auto;      /* Centrado horizontal */
+    margin-right: auto;
+}
+
+/* Enlaces de navegación */
+nav a {
+    color: white;                    /* Color del texto */
+    text-decoration: none;           /* Sin subrayado */
+    padding: 0.5rem 1rem;          /* Espaciado interno para área clickeable */
+    border-radius: var(--radio-borde);  /* Bordes redondeados */
+    transition: var(--transicion);   /* Transición suave para efectos hover */
+}
+
+/* Efecto hover en enlaces de navegación */
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);  /* Fondo semi-transparente al pasar el mouse */
+    transform: translateY(-2px);                  /* Efecto de elevación */
+}
+
+/* Contenido principal - Contenedor principal de la página */
+main {
+    max-width: 1200px;       /* Ancho máximo para evitar líneas muy largas */
+    margin: 1rem auto;       /* Centrado horizontal con margen superior */
+    padding: 0 1rem;         /* Espaciado lateral */
+    margin-bottom: 70px;     /* Espacio para el footer fijo */
+}
+
+/* Secciones de contenido - Contenedores para diferentes secciones */
+.seccion-contenido {
+    display: none;                   /* Ocultas por defecto */
+    background: white;               /* Fondo blanco */
+    border-radius: var(--radio-borde);  /* Bordes redondeados */
+    padding: 1.5rem;                /* Espaciado interno generoso */
+    margin-bottom: 1rem;            /* Separación entre secciones */
+    box-shadow: var(--sombra);      /* Sombra para efecto de elevación */
+    animation: fadeIn 0.3s ease;    /* Animación de aparición */
+    max-width: 900px;               /* Ancho máximo para mejor legibilidad */
+    margin-left: auto;              /* Centrado horizontal */
+    margin-right: auto;
+}
+
+/* Sección activa - Muestra la sección seleccionada */
+.seccion-contenido.activa {
+    display: block !important;       /* Fuerza la visualización */
+}
+
+/* Grupos de formulario - Contenedores para campos de formulario */
+.form-group {
+    margin-bottom: 1rem;            /* Separación entre campos */
+    max-width: 900px;               /* Ancho máximo */
+}
+
+/* Etiquetas de formulario */
+label {
+    display: block;                 /* Ocupa toda la línea */
+    margin-bottom: 0.5rem;          /* Separación del campo */
+    color: var(--color-primario);   /* Color del texto */
+    font-weight: 500;               /* Peso de fuente medio */
+}
+
+/* Campos de entrada - Inputs, textareas y selects */
+input, textarea, select {
+    width: 100%;                    /* Ancho completo */
+    padding: 0.8rem;               /* Espaciado interno */
+    border: 2px solid #eee;        /* Borde gris claro */
+    border-radius: var(--radio-borde);  /* Bordes redondeados */
+    transition: var(--transicion);  /* Transición para efectos */
+}
+
+/* Estado focus en campos de entrada */
+input:focus, textarea:focus, select:focus {
+    border-color: var(--color-acento);              /* Borde azul al enfocar */
+    outline: none;                                   /* Sin outline del navegador */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); /* Sombra azul suave */
+}
+
+/* Botones base - Estilo por defecto para todos los botones */
+button {
+    background-color: var(--color-acento);  /* Color de fondo azul */
+    color: white;                           /* Texto blanco */
+    padding: 0.8rem 1.5rem;               /* Espaciado interno */
+    border: none;                          /* Sin borde */
+    border-radius: var(--radio-borde);    /* Bordes redondeados */
+    cursor: pointer;                       /* Cursor de mano */
+    transition: var(--transicion);         /* Transición suave */
+    font-size: 0.9rem;                    /* Tamaño de fuente */
+}
+
+/* Efecto hover en botones */
+button:hover {
+    transform: translateY(-2px);           /* Efecto de elevación */
+    background-color: #2980b9;             /* Color más oscuro */
+}
+
+/* Botones específicos de edición */
+.btn-editar, 
+.btn-editar-profesor, 
+.btn-editar-curso {
+    background-color: var(--color-acento); /* Color azul para editar */
+    padding: 0.5rem 1rem;                 /* Espaciado más compacto */
+}
+
+/* Botones de eliminación */
+.btn-eliminar, 
+.btn-eliminar-profesor, 
+.btn-eliminar-curso, 
+.btn-eliminar-asignacion {
+    background-color: var(--color-error);  /* Color rojo para eliminar */
+    padding: 0.5rem 1rem;                 /* Espaciado compacto */
+}
+
+/* Botón para cambiar estado */
+.btn-cambiar-estado {
+    background-color: var(--color-exito);  /* Color verde para acciones positivas */
+    padding: 0.5rem 1rem;
+}
+
+/* Efecto hover adicional para botones */
+button:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra más pronunciada */
+}
+
+/* Botones de acción específicos - Redefinición con estilos consistentes */
+.btn-editar, .btn-eliminar, .btn-primario, .btn-secundario, .btn-peligro {
+    padding: 8px 16px;                     /* Espaciado estándar */
+    color: white;                          /* Texto blanco */
+    border: none;                          /* Sin borde */
+    border-radius: 4px;                    /* Bordes ligeramente redondeados */
+    cursor: pointer;                       /* Cursor de mano */
+    transition: background-color 0.2s;     /* Transición rápida de color */
+}
+
+/* Botón de editar */
+.btn-editar {
+    background-color: var(--color-acento); /* Azul para editar */
+}
+
+/* Botones de eliminar y peligro */
+.btn-eliminar, .btn-peligro {
+    background-color: var(--color-error);  /* Rojo para acciones peligrosas */
+}
+
+/* Botón primario */
+.btn-primario {
+    background-color: var(--color-primario); /* Color principal */
+}
+
+/* Hover del botón primario */
+.btn-primario:hover {
+    background-color: #2980b9;              /* Color más claro al hover */
+}
+
+/* Botón secundario */
+.btn-secundario {
+    background-color: #95a5a6;              /* Gris para acciones secundarias */
+    margin-right: 10px;                     /* Separación del siguiente elemento */
+}
+
+/* Hover del botón secundario */
+.btn-secundario:hover {
+    background-color: #7f8c8d;              /* Gris más oscuro */
+}
+
+/* Elementos deshabilitados - Estilo para elementos no interactivos */
+.disabled, button:disabled, input:disabled, select:disabled, textarea:disabled {
+    opacity: 0.6;                           /* Transparencia para indicar deshabilitado */
+    cursor: not-allowed;                    /* Cursor de prohibido */
+    background-color: #f5f5f5;              /* Fondo gris claro */
+}
+
+/* Animación de aparición gradual */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); } /* Inicia invisible y ligeramente arriba */
+    to { opacity: 1; transform: translateY(0); }       /* Termina visible en posición normal */
+}
+
+/* Tablas - Estilo para todas las tablas */
+table {
+    width: 100%;                            /* Ancho completo */
+    border-collapse: collapse;              /* Bordes unidos */
+    margin-top: 1rem;                       /* Separación superior */
+    background: white;                      /* Fondo blanco */
+    border-radius: var(--radio-borde);     /* Bordes redondeados */
+    overflow: hidden;                       /* Oculta contenido que sobresale */
+    table-layout: fixed;                    /* Layout fijo para mejor control */
+}
+
+/* Encabezados de tabla */
+th {
+    background-color: var(--color-primario); /* Fondo azul oscuro */
+    color: white;                           /* Texto blanco */
+    padding: 1rem;                          /* Espaciado interno */
+    text-align: left;                       /* Alineación a la izquierda */
+}
+
+/* Columna de acciones - Ancho fijo para botones */
+th:last-child {
+    width: 180px;                           /* Ancho fijo para la última columna */
+}
+
+/* Celda de acciones - Disposición horizontal de botones */
+td:last-child {
+    display: flex;                          /* Disposición flexible */
+    gap: 8px;                              /* Espacio entre botones */
+    justify-content: flex-start;           /* Alineación al inicio */
+}
+
+/* Celdas de tabla */
+td {
+    padding: 1rem;                          /* Espaciado interno */
+    border-bottom: 1px solid #eee;         /* Borde inferior gris */
+}
+
+/* Efecto hover en filas */
+tr:hover {
+    background-color: #f8f9fa;              /* Fondo gris claro al pasar el mouse */
+}
+
+/* Redefinición de botones de editar y eliminar */
+.btn-editar {
+    background-color: var(--color-acento);  /* Azul para editar */
+}
+
+.btn-eliminar {
+    background-color: var(--color-error);   /* Rojo para eliminar */
+}
+
+/* Animación fadeIn redefinida */
+@keyframes fadeIn {
+    from {
+        opacity: 0;                          /* Inicia invisible */
+        transform: translateY(-10px);        /* Posición inicial arriba */
+    }
+    to {
+        opacity: 1;                          /* Termina visible */
+        transform: translateY(0);            /* Posición final normal */
+    }
+}
+
+/* Pie de página - Footer fijo en la parte inferior */
+footer {
+    background: var(--color-primario);      /* Fondo azul oscuro */
+    color: white;                           /* Texto blanco */
+    text-align: center;                     /* Centrado */
+    padding: 1rem;                          /* Espaciado interno */
+    position: fixed;                        /* Posición fija */
+    bottom: 0;                              /* Pegado al fondo */
+    width: 100%;                            /* Ancho completo */
+}
+
+/* Diseño responsivo - Adaptación para pantallas pequeñas */
+@media (max-width: 768px) {
+    main {
+        padding: 0.5rem;                    /* Menos espaciado en móviles */
+    }
+    
+    .form-group {
+        margin-bottom: 0.8rem;              /* Menos separación entre campos */
+    }
+    
+    table {
+        display: block;                      /* Tabla como bloque */
+        overflow-x: auto;                    /* Scroll horizontal si es necesario */
+    }
+    
+    td, th {
+        padding: 0.8rem;                    /* Menos espaciado en celdas */
+    }
+}
+
+/* Modo edición - Estilo especial para elementos en edición */
+.modo-edicion {
+    background-color: #f8f9fa;              /* Fondo gris claro */
+    padding: 20px;                          /* Espaciado interno */
+    border: 2px solid #007bff;              /* Borde azul */
+    border-radius: 5px;                     /* Bordes redondeados */
+    transition: all 0.3s ease;              /* Transición suave */
+}
+
+/* Botón de cerrar sesión */
+.btn-logout {
+    position: absolute;                      /* Posición absoluta */
+    top: 1rem;                              /* Desde arriba */
+    right: 1rem;                            /* Desde la derecha */
+    background-color: transparent;           /* Fondo transparente */
+    color: white;                           /* Texto blanco */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde semi-transparente */
+    padding: 0.5rem 1rem;                  /* Espaciado interno */
+    border-radius: var(--radio-borde);     /* Bordes redondeados */
+    cursor: pointer;                        /* Cursor de mano */
+    transition: var(--transicion);          /* Transición suave */
+}
+
+/* Hover del botón logout */
+.btn-logout:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    transform: translateY(-2px);                 /* Efecto de elevación */
+}
+
+/* Información del usuario */
+.usuario-info {
+    position: absolute;                      /* Posición absoluta */
+    top: 1rem;                              /* Desde arriba */
+    right: 10rem;                           /* Desde la derecha con espacio para logout */
+    color: white;                           /* Texto blanco */
+    padding: 0.5rem 1rem;                  /* Espaciado interno */
+    border-radius: var(--radio-borde);     /* Bordes redondeados */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+}
+
+/* Elementos deshabilitados redefinidos */
+.disabled, button:disabled, input:disabled, select:disabled, textarea:disabled {
+    opacity: 0.6;                           /* Transparencia */
+    cursor: not-allowed;                    /* Cursor de prohibido */
+    background-color: #f5f5f5;              /* Fondo gris */
+}
+
+/* Botones específicos deshabilitados */
+.btn-agregar:disabled, .btn-editar:disabled, .btn-eliminar:disabled {
+    background-color: #cccccc;              /* Fondo gris */
+    color: #666666;                         /* Texto gris */
+    border-color: #999999;                  /* Borde gris */
+    transform: none;                        /* Sin efectos de transformación */
+    box-shadow: none;                       /* Sin sombra */
+}
+
+/* Modal - Ventana emergente */
+.modal {
+    display: none;                          /* Oculto por defecto */
+    position: fixed;                        /* Posición fija */
+    z-index: 1000;                         /* Encima de otros elementos */
+    left: 0;                               /* Desde la izquierda */
+    top: 0;                                /* Desde arriba */
+    width: 100%;                           /* Ancho completo */
+    height: 100%;                          /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.5);  /* Fondo semi-transparente */
+    overflow: auto;                        /* Scroll si es necesario */
+    animation: fadeIn 0.3s ease;           /* Animación de aparición */
+}
+
+/* Contenido del modal */
+.modal-contenido {
+    background-color: #fff;                 /* Fondo blanco */
+    margin: 10% auto;                      /* Centrado vertical y horizontal */
+    padding: 0;                            /* Sin espaciado interno */
+    border-radius: 8px;                    /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra pronunciada */
+    width: 90%;                            /* Ancho del 90% */
+    max-width: 500px;                      /* Ancho máximo */
+    animation: slideDown 0.3s ease;        /* Animación de deslizamiento */
+}
+
+/* Encabezado del modal */
+.modal-header {
+    background-color: var(--color-primario); /* Fondo azul oscuro */
+    color: white;                           /* Texto blanco */
+    padding: 15px 20px;                     /* Espaciado interno */
+    border-top-left-radius: 8px;           /* Borde superior izquierdo redondeado */
+    border-top-right-radius: 8px;          /* Borde superior derecho redondeado */
+}
+
+/* Título del modal */
+.modal-header h3 {
+    margin: 0;                              /* Sin márgenes */
+    font-size: 1.2rem;                     /* Tamaño de fuente */
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    padding: 20px;                          /* Espaciado interno */
+    font-size: 1rem;                       /* Tamaño de fuente */
+    line-height: 1.5;                      /* Espaciado entre líneas */
+}
+
+/* Pie del modal */
+.modal-footer {
+    padding: 15px 20px;                     /* Espaciado interno */
+    text-align: right;                      /* Alineación a la derecha */
+    border-top: 1px solid #e0e0e0;         /* Borde superior */
+}
+
+/* Botón cerrar modal */
+.cerrar-modal {
+    color: white;                           /* Color blanco */
+    float: right;                           /* Flotante a la derecha */
+    font-size: 28px;                       /* Tamaño grande */
+    font-weight: bold;                      /* Peso bold */
+    cursor: pointer;                        /* Cursor de mano */
+}
+
+/* Hover del botón cerrar */
+.cerrar-modal:hover {
+    color: #f0f0f0;                         /* Color más claro */
+}
+
+/* Botón primario redefinido */
+.btn-primario {
+    background-color: var(--color-primario); /* Color principal */
+    color: white;                           /* Texto blanco */
+    border: none;                           /* Sin borde */
+    padding: 8px 16px;                      /* Espaciado interno */
+    border-radius: 4px;                     /* Bordes redondeados */
+    cursor: pointer;                        /* Cursor de mano */
+    transition: background-color 0.2s;      /* Transición de color */
+}
+
+/* Hover del botón primario */
+.btn-primario:hover {
+    background-color: #2980b9;              /* Color más claro */
+}
+
+/* Botón secundario redefinido */
+.btn-secundario {
+    background-color: #95a5a6;              /* Color gris */
+    color: white;                           /* Texto blanco */
+    border: none;                           /* Sin borde */
+    padding: 8px 16px;                      /* Espaciado interno */
+    border-radius: 4px;                     /* Bordes redondeados */
+    cursor: pointer;                        /* Cursor de mano */
+    transition: background-color 0.2s;      /* Transición de color */
+    margin-right: 10px;                     /* Margen derecho */
+}
+
+/* Hover del botón secundario */
+.btn-secundario:hover {
+    background-color: #7f8c8d;              /* Color más oscuro */
+}
+
+/* Botón de peligro */
+.btn-peligro {
+    background-color: #e74c3c;              /* Color rojo */
+    color: white;                           /* Texto blanco */
+    border: none;                           /* Sin borde */
+    padding: 8px 16px;                      /* Espaciado interno */
+    border-radius: 4px;                     /* Bordes redondeados */
+    cursor: pointer;                        /* Cursor de mano */
+    transition: background-color 0.2s;      /* Transición de color */
+}
+
+/* Hover del botón de peligro */
+.btn-peligro:hover {
+    background-color: #c0392b;              /* Color más oscuro */
+}
+
+/* Animaciones para modales */
+@keyframes fadeIn {
+    from { opacity: 0; }                    /* Inicia invisible */
+    to { opacity: 1; }                      /* Termina visible */
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; } /* Inicia arriba e invisible */
+    to { transform: translateY(0); opacity: 1; }       /* Termina en posición normal y visible */
+}
+
+/* Modo solo lectura para estudiantes */
+.modo-solo-lectura .seccion-contenido {
+    display: block;                         /* Siempre visible */
+    border-left: 4px solid var(--color-acento); /* Borde izquierdo azul */
+    padding-left: 1.2rem;                  /* Espaciado izquierdo adicional */
+}
+
+/* Títulos en modo solo lectura */
+.modo-solo-lectura h2 {
+    color: var(--color-acento);             /* Color azul para títulos */
+}
+
+/* Tablas en modo solo lectura */
+.modo-solo-lectura table {
+    border: 1px solid #eee;                 /* Borde gris claro */
+}
+
+/* Indicador de rol */
+.rol-indicador {
+    display: inline-block;                  /* Elemento en línea */
+    margin-left: 10px;                      /* Margen izquierdo */
+    padding: 2px 8px;                       /* Espaciado interno pequeño */
+    border-radius: 10px;                    /* Bordes muy redondeados */
+    font-size: 0.8rem;                     /* Fuente pequeña */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+}
+
+/* Indicador para rol admin */
+.rol-admin .rol-indicador {
+    background-color: #e74c3c;              /* Fondo rojo para admin */
+}
+
+/* Indicador para rol estudiante */
+.rol-estudiante .rol-indicador {
+    background-color: #3498db;              /* Fondo azul para estudiante */
+}
+
+/* Indicador para rol profesor */
+.rol-profesor .rol-indicador {
+    background-color: #2ecc71;              /* Fondo verde para profesor */
+}
+
+/* Contenedor del encabezado */
+.header-container {
+    display: flex;                          /* Disposición flexible */
+    justify-content: space-between;         /* Espacio entre elementos */
+    align-items: center;                    /* Alineación vertical centrada */
+    width: 100%;                            /* Ancho completo */
+    margin-bottom: 15px;                    /* Margen inferior */
+}
+
+/* Información del usuario */
+.user-info {
+    display: flex;                          /* Disposición flexible */
+    align-items: center;                    /* Alineación vertical centrada */
+    gap: 15px;                             /* Espacio entre elementos */
+}
+
+/* Texto en información de usuario */
+.user-info span {
+    font-weight: bold;                      /* Texto en negrita */
+}
+
+/* Botón cerrar sesión alternativo */
+.btn-cerrar-sesion {
+    background-color: #dc3545;              /* Fondo rojo */
+    color: white;                           /* Texto blanco */
+    padding: 5px 10px;                      /* Espaciado interno pequeño */
+    border-radius: 4px;                     /* Bordes redondeados */
+    text-decoration: none;                  /* Sin subrayado */
+    font-size: 0.9em;                      /* Fuente ligeramente más pequeña */
+}
+
+/* Hover del botón cerrar sesión */
+.btn-cerrar-sesion:hover {
+    background-color: #c82333;              /* Color más oscuro */
+}
+
+/* Título del encabezado */
+.header-title {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    color: white;                           /* Texto blanco */
+    padding: 15px 20px;                     /* Espaciado interno */
+    text-align: center;                     /* Centrado */
+    margin-bottom: 10px;                    /* Margen inferior */
+    border-radius: 5px;                     /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Sombra suave */
+}
+
+/* H1 dentro del título del encabezado */
+.header-title h1 {
+    margin: 0;                              /* Sin márgenes */
+    font-size: 28px;                        /* Tamaño de fuente grande */
+}
+
+/* Párrafo dentro del título del encabezado */
+.header-title p {
+    margin: 5px 0 0;                        /* Margen superior pequeño */
+    font-size: 14px;                        /* Fuente pequeña */
+    opacity: 0.9;                           /* Ligeramente transparente */
+}
